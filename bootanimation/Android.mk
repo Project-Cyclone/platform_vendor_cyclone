@@ -60,7 +60,7 @@ $(TARGET_GENERATED_BOOTANIMATION): $(SOONG_ZIP)
 	        BOOTFPS="30"; \
 	        ISQUARE="false"; \
 	esac; \
-	tar xfp "vendor/bootleggers/bootanimation/bootanimation$$BOOTSELECTED.tar" -C $(INTERMEDIATES); \
+	tar xfp "vendor/cyclone/bootanimation/bootanimation$$BOOTSELECTED.tar" -C $(INTERMEDIATES); \
 	if [ $(TARGET_SCREEN_HEIGHT) -lt $(TARGET_SCREEN_WIDTH) ]; then \
 	    IMAGEWIDTH=$(TARGET_SCREEN_HEIGHT); \
 	else \
@@ -82,9 +82,9 @@ $(TARGET_GENERATED_BOOTANIMATION): $(SOONG_ZIP)
 	for part_cnt in 0 1 2; do \
 	    mkdir -p $(INTERMEDIATES)/part$$part_cnt; \
 	done; \
-	prebuilts/tools-bootleg/${HOST_OS}-x86/bin/mogrify -strip -gaussian-blur 0.05 -quality 55 -resize $$RESOLUTION^ -gravity center -crop $$RESOLUTION+0+0 -colors 250 $(INTERMEDIATES)/*/*.jpg; \
+	prebuilts/tools-cyclone/${HOST_OS}-x86/bin/mogrify -strip -gaussian-blur 0.05 -quality 55 -resize $$RESOLUTION^ -gravity center -crop $$RESOLUTION+0+0 -colors 250 $(INTERMEDIATES)/*/*.jpg; \
 	echo "$$IMAGESCALEWIDTH $$IMAGESCALEHEIGHT $$BOOTFPS" > $(INTERMEDIATES)/desc.txt; \
-	cat vendor/bootleggers/bootanimation/desc.txt >> $(INTERMEDIATES)/desc.txt
+	cat vendor/cyclone/bootanimation/desc.txt >> $(INTERMEDIATES)/desc.txt
 	$(hide) $(SOONG_ZIP) -L 0 -o $(TARGET_GENERATED_BOOTANIMATION) -C $(INTERMEDIATES) -D $(INTERMEDIATES)
 
 ifeq ($(TARGET_BOOTANIMATION),)

@@ -5,7 +5,7 @@ dir=$ANDROID_BUILD_TOP
 out=$dir/out/target/product
 
 export Changelog=$PWD/Changelog.txt
-export MANIFEST="${TOP}/.repo/manifests/snippets/bootleggers.xml"
+export MANIFEST="${TOP}/.repo/manifests/snippets/cyclone.xml"
 
 if [ -f $Changelog ];
 then

@@ -1,12 +1,12 @@
-include vendor/bootleggers/config/BoardConfigKernel.mk
+include vendor/cyclone/config/BoardConfigKernel.mk
 
 # QCOM HW BoardConfig
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
-include vendor/bootleggers/config/BoardConfigQcom.mk
+include vendor/cyclone/config/BoardConfigQcom.mk
 endif
 
 
-include vendor/bootleggers/config/BoardConfigSoong.mk
+include vendor/cyclone/config/BoardConfigSoong.mk
 
 
 ifneq ($(TARGET_USES_PREBUILT_CAMERA_SERVICE), true)

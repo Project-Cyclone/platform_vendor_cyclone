@@ -1,14 +1,14 @@
 #
-# BootleggersROM Audio Files
+# CycloneROM Audio Files
 # based on CyanogenMod old one
 #
 
-ALARM_PATH := vendor/bootleggers/prebuilt/common/media/audio/alarms
-NOTIFICATION_PATH := vendor/bootleggers/prebuilt/common/media/audio/notifications
-RINGTONE_PATH := vendor/bootleggers/prebuilt/common/media/audio/ringtones
+ALARM_PATH := vendor/cyclone/prebuilt/common/media/audio/alarms
+NOTIFICATION_PATH := vendor/cyclone/prebuilt/common/media/audio/notifications
+RINGTONE_PATH := vendor/cyclone/prebuilt/common/media/audio/ringtones
 
 # Include some more AOSP sounds
-include vendor/bootleggers/config/common_aosp_media.mk
+include vendor/cyclone/config/common_aosp_media.mk
 
 # Alarms
 PRODUCT_COPY_FILES += \

@@ -6,11 +6,11 @@ endif
 
 # Bootleggers System Version
 ADDITIONAL_BUILD_PROPERTIES += \
-    ro.bootleggers.version_number=$(BOOTLEGGERS_VERSION_NUMBER) \
-    ro.bootleggers.releasetype=$(BOOTLEGGERS_BUILD_TYPE) \
-    ro.bootleggers.version=$(BOOTLEGGERS_VERSION) \
-    ro.bootleggers.buildshort=$(BOOTLEGGERS_MOD_SHORT) \
-    ro.bootleggers.songcodename=$(PRODUCT_VERSION_MINOR) \
-    ro.bootleggers.songcodeurl=$(BOOTLEGGERS_SONGCODEURL) \
-    ro.bootleggers.display.version=$(BOOTLEGGERS_VERSION) \
-    ro.bootleggers.build.date=$(BOOTLEGGERS_EPOCH)
+    ro.cyclone.version_number=$(CYCLONE_VERSION_NUMBER) \
+    ro.cyclone.releasetype=$(CYCLONE_BUILD_TYPE) \
+    ro.cyclone.version=$(CYCLONE_VERSION) \
+    ro.cyclone.buildshort=$(CYCLONE_MOD_SHORT) \
+    ro.cyclone.songcodename=$(PRODUCT_VERSION_MINOR) \
+    ro.cyclone.songcodeurl=$(CYCLONE_SONGCODEURL) \
+    ro.cyclone.display.version=$(CYCLONE_VERSION) \
+    ro.cyclone.build.date=$(CYCLONE_EPOCH)

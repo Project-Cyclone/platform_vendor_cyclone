@@ -24,42 +24,42 @@ endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/bootleggers/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/bootleggers/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/bootleggers/prebuilt/common/bin/50-bootleggers.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-bootleggers.sh \
-    vendor/bootleggers/prebuilt/common/bin/blacklist:$(TARGET_COPY_OUT_SYSTEM)/addon.d/blacklist
+    vendor/cyclone/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/cyclone/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/cyclone/prebuilt/common/bin/50-cyclone.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-cyclone.sh \
+    vendor/cyclone/prebuilt/common/bin/blacklist:$(TARGET_COPY_OUT_SYSTEM)/addon.d/blacklist
 
 ifneq ($(AB_OTA_PARTITIONS),)
 PRODUCT_COPY_FILES += \
-    vendor/bootleggers/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
-    vendor/bootleggers/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
-    vendor/bootleggers/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
+    vendor/cyclone/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+    vendor/cyclone/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
+    vendor/cyclone/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
 # system mount
 PRODUCT_COPY_FILES += \
-    vendor/bootleggers/build/tools/system-mount.sh:install/bin/system-mount.sh
+    vendor/cyclone/build/tools/system-mount.sh:install/bin/system-mount.sh
 
 # priv-app whitelist
 PRODUCT_COPY_FILES += \
-    vendor/bootleggers/prebuilt/common/etc/permissions/privapp-permissions-bootleg.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-bootleg.xml \
-    vendor/bootleggers/prebuilt/common/etc/permissions/privapp-permissions-bootleg.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-bootleg.xml
+    vendor/cyclone/prebuilt/common/etc/permissions/privapp-permissions-bootleg.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-cyclone.xml \
+    vendor/cyclone/prebuilt/common/etc/permissions/privapp-permissions-bootleg.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-cyclone.xml
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/bootleggers/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
+    vendor/cyclone/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
 
-# Copy all Bootleggers-specific init rc files
-$(foreach f,$(wildcard vendor/bootleggers/prebuilt/common/etc/init/*.rc),\
+# Copy all Cyclones-specific init rc files
+$(foreach f,$(wildcard vendor/cyclone/prebuilt/common/etc/init/*.rc),\
 	$(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
 
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
-    vendor/bootleggers/prebuilt/common/lib/content-types.properties:$(TARGET_COPY_OUT_SYSTEM)/lib/content-types.properties
+    vendor/cyclone/prebuilt/common/lib/content-types.properties:$(TARGET_COPY_OUT_SYSTEM)/lib/content-types.properties
 
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
-    vendor/bootleggers/config/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
+    vendor/cyclone/config/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -71,19 +71,19 @@ PRODUCT_COPY_FILES += \
 
 # Power whitelist
 PRODUCT_COPY_FILES += \
-    vendor/bootleggers/config/permissions/bootleg-power-whitelist.xml:system/etc/sysconfig/bootleg-power-whitelist.xml
+    vendor/cyclone/config/permissions/bootleg-power-whitelist.xml:system/etc/sysconfig/bootleg-power-whitelist.xml
 
 # Some permissions
 PRODUCT_COPY_FILES += \
-    vendor/bootleggers/config/permissions/privapp-permissions-recorder.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-recorder.xml \
-    vendor/bootleggers/config/permissions/bootleggers-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/bootleggers-hiddenapi-package-whitelist.xml \
-    vendor/bootleggers/config/permissions/privapp-permissions-recorder.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-recorder.xml \
-    vendor/bootleggers/config/permissions/bootleggers-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/bootleggers-hiddenapi-package-whitelist.xml
+    vendor/cyclone/config/permissions/privapp-permissions-recorder.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-recorder.xml \
+    vendor/cyclone/config/permissions/cyclone-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/cyclone-hiddenapi-package-whitelist.xml \
+    vendor/cyclone/config/permissions/privapp-permissions-recorder.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-recorder.xml \
+    vendor/cyclone/config/permissions/cyclone-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/cyclone-hiddenapi-package-whitelist.xml
 
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
-include vendor/bootleggers/config/twrp.mk
+include vendor/cyclone/config/twrp.mk
 endif
 
 # Disable vendor restrictions
@@ -177,17 +177,17 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.ime.height_ratio=1.05 \
     ro.com.google.ime.emoji_key=false
 
-DEVICE_PACKAGE_OVERLAYS += vendor/bootleggers/overlay/common
+DEVICE_PACKAGE_OVERLAYS += vendor/cyclone/overlay/common
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
--include vendor/bootleggers/config/partner_gms.mk
+-include vendor/cyclone/config/partner_gms.mk
 
 ifeq ($(TARGET_PROVIDES_TELEPHONY_EXT),)
 ifeq ($(TARGET_REQUIRES_TELEPHONY_EXT),true)
-include vendor/bootleggers/config/caf_fw.mk
+include vendor/cyclone/config/caf_fw.mk
 endif
 endif
 
-include vendor/bootleggers/config/btlg_main.mk
+include vendor/cyclone/config/cyclone_main.mk
 
 $(call prepend-product-if-exists, vendor/extra/product.mk)

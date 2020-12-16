@@ -1,4 +1,4 @@
-# Our Bootleg apps
+# Our Cyclone apps
 PRODUCT_PACKAGES += \
     Email \
     Etar \
@@ -16,23 +16,18 @@ PRODUCT_PACKAGES += \
     Phonograph \
     ThemePicker
 
-ifeq ($(BOOTLEGGERS_BUILD_TYPE),Shishufied)
-    PRODUCT_PACKAGES += \
-        ShishuOTA
-endif
-
 # Launcher Selection just in case
 # Please, prepare for reports
-ifeq ($(BOOTLEGGERS_SITDOWN),true)
+ifeq ($(CYCLONE_SITDOWN),true)
     PRODUCT_PACKAGES += \
         Lawnchair
 
 PRODUCT_COPY_FILES += \
-    vendor/bootleggers/prebuilt/lawnchair/etc/permissions/privapp-permissions-lawnchair.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-lawnchair.xml \
-    vendor/bootleggers/prebuilt/lawnchair/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
+    vendor/cyclone/prebuilt/lawnchair/etc/permissions/privapp-permissions-lawnchair.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-lawnchair.xml \
+    vendor/cyclone/prebuilt/lawnchair/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
 
     DEVICE_PACKAGE_OVERLAYS += \
-        vendor/bootleggers/overlay/lawnchair
+        vendor/cyclone/overlay/lawnchair
 else
     PRODUCT_PACKAGES += \
         Launcher3QuickStep

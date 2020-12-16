@@ -14,19 +14,19 @@
 # limitations under the License.
 
 # -----------------------------------------------------------------
-# Bootleggers OTA update package
+# Cyclone OTA update package
 
 ifneq ($(BUILD_WITH_COLORS),0)
-    include $(TOP_DIR)vendor/bootleggers/build/core/colors.mk
+    include $(TOP_DIR)vendor/cyclone/build/core/colors.mk
 endif
 
 MD5 := prebuilts/build-tools/path/$(HOST_OS)-x86/md5sum
-BOOTLEGGERS_TARGET_PACKAGE := $(PRODUCT_OUT)/$(BOOTLEGGERS_VERSION).zip
+CYCLONE_TARGET_PACKAGE := $(PRODUCT_OUT)/$(CYCLONE_VERSION).zip
 
-.PHONY: bacon bootleg bootleggers
+.PHONY: bacon cyclone cyclone
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(BOOTLEGGERS_TARGET_PACKAGE)
-	$(hide) $(MD5) $(BOOTLEGGERS_TARGET_PACKAGE) > $(BOOTLEGGERS_TARGET_PACKAGE).md5sum
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CYCLONE_TARGET_PACKAGE)
+	$(hide) $(MD5) $(CYCLONE_TARGET_PACKAGE) > $(CYCLONE_TARGET_PACKAGE).md5sum
 	@echo -e ${CL_CYN}""${CL_CYN}
 	@echo -e ${CL_CYN}"        ▄ █ "${CL_CYN}${CL_BLU}"███████▄▄      ▐██████████████     ████                ▄▄███████▀▄"${CL_BLU}
 	@echo -e ${CL_CYN}" ████████ █ "${CL_CYN}${CL_BLU}"██████████▄    ▐██████████████▌    ████             ▄██████████████"${CL_BLU}
@@ -38,21 +38,21 @@ bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
 	@echo -e ${CL_CYN}"▄▄██▀▀    █ "${CL_CYN}${CL_BLU}"████████████▀        ████          ████████████     ▀███████████████"${CL_BLU}
 	@echo -e ${CL_CYN}"     ▐▀█▀ █ "${CL_CYN}${CL_BLU}"████████▀▀▀          ████          ████████████        ▀▀███████▀▀"${CL_BLU}
 	@echo -e ${CL_BLU}"                                 "${CL_BLU}
-	@echo -e ${CL_CYN}"          Bootleggers ROM         "${CL_CYN}
-	@echo -e ${CL_CYN}"          #KeepTheBootleg        "${CL_CYN}
+	@echo -e ${CL_CYN}"          Cyclone ROM         "${CL_CYN}
+	@echo -e ${CL_CYN}"          #Wrath_of_the_ocean        "${CL_CYN}
 	@echo -e ${CL_CYN}"                "${CL_CYN}
 	@echo -e ${CL_CYN}"                "${CL_CYN}
 	@echo -e ${CL_CYN}"                "${CL_CYN}
 	@echo -e ${CL_CYN}"The build is done, be sure to get it on:"${CL_CYN}
-	@echo -e ${CL_CYN}"$(BOOTLEGGERS_TARGET_PACKAGE)"${CL_CYN}
-ifeq ($(BOOTLEGGERS_BUILD_TYPE),Shishufied)
-	@echo -e ${CL_CYN}"And your build size is:" $(shell ls -lh $(BOOTLEGGERS_TARGET_PACKAGE)|cut -d" " -f5)"B ("$(shell stat -L -t -c %s $(BOOTLEGGERS_TARGET_PACKAGE))")"${CL_CYN}
+	@echo -e ${CL_CYN}"$(CYCLONE_TARGET_PACKAGE)"${CL_CYN}
+ifeq ($(CYCLONE_BUILD_TYPE),Shishufied)
+	@echo -e ${CL_CYN}"And your build size is:" $(shell ls -lh $(CYCLONE_TARGET_PACKAGE)|cut -d" " -f5)"B ("$(shell stat -L -t -c %s $(CYCLONE_TARGET_PACKAGE))")"${CL_CYN}
 else
-	@echo -e ${CL_CYN}"Your build size is" $(shell ls -lh $(BOOTLEGGERS_TARGET_PACKAGE)|cut -d" " -f5)"B"${CL_CYN}
+	@echo -e ${CL_CYN}"Your build size is" $(shell ls -lh $(CYCLONE_TARGET_PACKAGE)|cut -d" " -f5)"B"${CL_CYN}
 endif
 	@echo -e ${CL_CYN}"                "${CL_CYN}
-	@echo -e ${CL_CYN}"Also, enjoy your $(BOOTLEGGERS_BUILD_TYPE) build"${CL_CYN}  
+	@echo -e ${CL_CYN}"Also, enjoy your $(CYCLONE_BUILD_TYPE) build"${CL_CYN}  
 
-bootleggers: bacon
+cyclone: bacon
 
 bootleg: bacon

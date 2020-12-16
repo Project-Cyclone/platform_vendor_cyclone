@@ -1,2 +1,2 @@
-# Include Bootleggers versions
-include $(TOPDIR)vendor/bootleggers/build/core/main_version.mk
+# Include Cyclone versions
+include $(TOPDIR)vendor/cyclone/build/core/main_version.mk

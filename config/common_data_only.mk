@@ -1,4 +1,4 @@
-# Inherit full common Bootleggers stuff
-$(call inherit-product, vendor/bootleggers/config/common.mk)
+# Inherit full common Cyclone stuff
+$(call inherit-product, vendor/cyclone/config/common.mk)
 
-$(call inherit-product, vendor/bootleggers/config/data_only.mk)
+$(call inherit-product, vendor/cyclone/config/data_only.mk)
